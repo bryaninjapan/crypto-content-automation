@@ -1,0 +1,131 @@
+{
+  "project_name": "Crypto X Article Generator",
+  "version": "1.0.0",
+  "settings": {
+    "language": "zh-CN",
+    "image": {
+      "ratio": "5:2",
+      "width": 1000,
+      "height": 400,
+      "style": "bold_text_thumbnail",
+      "color_scheme": {
+        "background": "#000000",
+        "text": "#FFFFFF",
+        "highlight_bg": "#FF8C00",
+        "highlight_text": "#FFFFFF"
+      }
+    },
+    "content": {
+      "language": "zh-CN",
+      "target_length": [
+        800,
+        1500
+      ],
+      "tone": "professional_conversational",
+      "optimization_goals": [
+        "impressions",
+        "likes",
+        "saves"
+      ],
+      "format": "x_article"
+    },
+    "input_sources": {
+      "supports": [
+        "topic_keywords",
+        "url_links",
+        "uploaded_files",
+        "auto_search"
+      ],
+      "auto_search_keywords": [
+        "crypto",
+        "blockchain",
+        "DeFi",
+        "Bitcoin",
+        "Ethereum",
+        "altcoins",
+        "NFT",
+        "Web3"
+      ]
+    },
+    "output": {
+      "directory": "/Users/iruka/Downloads/claucowork/crypto-x-articles",
+      "image_filename_format": "crypto_article_{date}.png",
+      "content_filename_format": "crypto_article_{date}.md"
+    }
+  },
+  "content_templates": {
+    "title_styles": [
+      "🚨 {topic}：你现在必须知道的真相",
+      "💡 {topic} 深度解析：从复杂到清晰",
+      "📊 {topic} 完全指南：数据背后的故事",
+      "⚡ 为什么 {topic} 比你想象的更重要",
+      "🔥 {topic}：所有人都忽略的关键数据"
+    ],
+    "hooks": [
+      "今天我们来聊一个被严重低估的话题...",
+      "如果你对 {topic} 感到困惑，你并不孤单。",
+      "让我们看看数据到底在告诉我们什么：",
+      "所有人都在讨论 {topic}，但他们都忽略了这些：",
+      "过去几天我深入研究了 {topic}，发现了这些关键信息："
+    ],
+    "structure": {
+      "sections": [
+        {
+          "name": "开场/钩子",
+          "purpose": "抓住注意力，说明问题或机会",
+          "length": "2-3句话"
+        },
+        {
+          "name": "背景/上下文",
+          "purpose": "设定场景，解释为什么现在重要",
+          "length": "3-4句话"
+        },
+        {
+          "name": "主要分析 (2-3个小节)",
+          "purpose": "将主题拆解成易于理解的部分",
+          "length": "多个段落，带小标题"
+        },
+        {
+          "name": "核心要点",
+          "purpose": "用要点总结主要见解",
+          "length": "3-5个要点"
+        },
+        {
+          "name": "总结/行动号召",
+          "purpose": "以可执行的见解或引人思考的问题结尾",
+          "length": "2-3句话"
+        }
+      ]
+    }
+  },
+  "engagement_tips": {
+    "title": [
+      "Use numbers or data when possible",
+      "Create curiosity gap",
+      "Keep under 70 characters",
+      "Use emojis strategically (1-2 max)"
+    ],
+    "content": [
+      "Start with a hook that relates to reader's pain/gain",
+      "Use short paragraphs (2-3 sentences)",
+      "Include subheadings every 200-300 words",
+      "Simplify jargon - explain like to a smart friend",
+      "Use bullet points for lists",
+      "Add data/statistics to build credibility",
+      "End with open question to encourage engagement"
+    ],
+    "image": [
+      "One clear focal point",
+      "Readable at small sizes",
+      "Use contrast for text",
+      "Keep it clean and professional",
+      "Include one key metric/number if relevant"
+    ]
+  },
+  "schedule": {
+    "enabled": true,
+    "time": "09:00",
+    "timezone": "Asia/Shanghai",
+    "auto_topics": true
+  }
+}
