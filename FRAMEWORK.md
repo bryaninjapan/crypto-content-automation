@@ -112,10 +112,16 @@ After the draft is generated, refine it against the **「人味兒」五字訣**
 
 ## Output Standards 📁
 
+**所有生成的檔案與圖片一律存進 `crypto-x-articles/`，不要放在 `articles/`。**
+
+- **Output folder**: 專案內使用 `crypto-x-articles/`（或對應絕對路徑）。
+- **禁止**: 勿將生成的文章、縮圖、圖片存到 `articles/`。`articles/` 僅供草稿或暫存用途，非正式輸出目錄。
+
 **All generated content MUST be saved to:**
 ```
 /Users/iruka/Downloads/claucowork/crypto-x-articles/
 ```
+（或專案內的 `crypto-x-articles/`）
 
 **Naming Convention:**
 - Article: `{article_name}.md`

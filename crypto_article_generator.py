@@ -12,7 +12,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Import our generators
-from generate_image import CryptoImageGenerator
+from generate_image import ThumbnailGenerator
 from generate_content import CryptoContentGenerator
 
 
@@ -22,7 +22,7 @@ class CryptoArticleOrchestrator:
         with open(config_path, 'r') as f:
             self.config = json.load(f)
 
-        self.image_gen = CryptoImageGenerator(config_path)
+        self.image_gen = ThumbnailGenerator(config_path)
         self.content_gen = CryptoContentGenerator(config_path)
 
         # Ensure output directory exists
@@ -64,12 +64,12 @@ class CryptoArticleOrchestrator:
         date_str = datetime.now().strftime('%Y-%m-%d')
         image_path_full = os.path.join(output_dir, f"crypto_article_{date_str}.png")
         
-        image_path = self.image_gen.create_image(
-            title=title,
-            subtitle="Deep Dive Analysis",
-            key_metric=None,  # Could extract from content
-            output_path=image_path_full
-        )
+        # 主題縮圖：第一行標題（高亮），第二行副標
+        blocks = [
+            {'text': title, 'highlight': True, 'row': 0},
+            {'text': 'Deep Dive Analysis', 'highlight': False, 'row': 1},
+        ]
+        image_path = self.image_gen.create_thumbnail(blocks, output_path=image_path_full)
 
         return {
             'image': image_path,
