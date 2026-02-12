@@ -1,239 +1,240 @@
-# 🚀 Crypto X Article Generator
+# 🚀 X Article Generator
 
-自动生成高质量币圈 X Article 内容，包含专业图片和优化文案。
+自動生成高質量 X (Twitter) Article 內容，包含專業圖片和優化文案。適用於任何主題。
 
-## 📋 功能特点
-
-- ✅ **5:2 比例图片生成** - 数据可视化风格，专业美观
-- ✅ **X Article 格式优化** - 专为增加 impression、likes 和 saves 设计
-- ✅ **多种输入方式** - 支持主题、URL、文件上传、自动搜索
-- ✅ **完全可定制** - 通过 config.json 调整所有设置
-- ✅ **无需 Claude Project** - 使用本地配置文件系统
-
-## 🧠 生成框架 (New!)
-
-本项目遵循一套标准化的生成框架，以确保质量和沟通效率：
-- **Phase 1: Discovery** - 深入理解需求，挑战假设
-- **Phase 2: Planning** - 明确版本计划，预估复杂度，列出大纲
-- **Phase 3: Writing** - 透明化执行过程，遇到问题提供选项
-- **Phase 4: Polishing** - 人性化口吻优化，增加互动诱因选项
-
-👉 详见 [FRAMEWORK.md](FRAMEWORK.md)
-
-## 🎯 快速开始
-
-### 方法 1: 直接用 Claude（推荐）
-
-最简单的方式是直接告诉 Claude 你想要什么：
-
-```
-请帮我生成一篇关于"Bitcoin ETFs"的 X Article
-```
-
-或者：
-
-```
-请基于这个链接生成 X Article: [URL]
-```
-
-### 方法 2: 命令行使用
+## ⚡ 快速生成圖片（最常用）
 
 ```bash
-cd /sessions/funny-trusting-cori/mnt/claucowork/crypto-x-generator
+# 為現有文章生成配圖
+python3 generate_article_image.py 文章名 "文字1" "文字2" --highlight 0
 
-# 从主题生成
-python crypto_article_generator.py --topic "DeFi Yields" --points "Current Trends" "Risk Analysis" "Opportunities"
-
-# 从 URL 生成（需要 Claude 协助）
-python crypto_article_generator.py --url "https://example.com/crypto-report"
-
-# 自动生成今日热点（需要 Claude 协助）
-python crypto_article_generator.py --auto
+# 範例
+python3 generate_article_image.py x_strategy "X藍V" "互關" "有用嗎" --highlight 0
 ```
 
-## 📁 项目结构
+**📁 自動存到:** `/Users/iruka/Downloads/claucowork/crypto-x-articles/`
+
+**📖 詳細文檔:**
+- [X Article 完整工作流程](X_ARTICLE_WORKFLOW.md) ← 必讀
+- [圖片生成快速參考](QUICK_REFERENCE_圖片生成.md)
+- [設計規格與框架](FRAMEWORK.md)
+
+---
+
+## 📋 功能特點
+
+- ✅ **5:2 比例圖片生成** - YouTube Influence 風格，黑底橘色高亮
+- ✅ **X Article 格式優化** - 專為增加 impressions、likes 和 saves 設計
+- ✅ **通用主題支援** - 不限制特定領域，適用任何主題
+- ✅ **完全可定製** - 通過 config.json 調整所有設置
+- ✅ **簡單易用** - 一行命令生成專業封面圖
+
+## 🧠 生成框架
+
+本項目遵循標準化的 4 階段生成框架：
+- **Phase 1: Discovery** - 深入理解需求，挑戰假設
+- **Phase 2: Planning** - 明確版本計劃，預估複雜度
+- **Phase 3: Writing** - 透明化執行過程，問題導向
+- **Phase 4: Polishing** - 人性化口吻優化，提升互動
+
+👉 詳見 [FRAMEWORK.md](FRAMEWORK.md)
+
+---
+
+## 🎯 使用方式
+
+### 圖片生成（主要功能）
+
+```bash
+# 基本用法
+python3 generate_article_image.py 文章名 "文字1" "文字2" --highlight 0
+
+# 範例：策略分析
+python3 generate_article_image.py strategy_guide "策略" "指南" "2026" --highlight 0
+
+# 範例：警告文章
+python3 generate_article_image.py ai_warning "不要用" "AI工具" "的原因" --highlight 1
+
+# 範例：數據報告
+python3 generate_article_image.py market_report "市場" "分析" "報告" --highlight 0 2
+```
+
+**輸出位置:** 自動存到 `/Users/iruka/Downloads/claucowork/crypto-x-articles/`
+
+## 📁 專案結構
 
 ```
 crypto-x-generator/
-├── config.json                    # 配置文件（风格、模板等）
-├── generate_image.py              # 图片生成器
-├── generate_content.py            # 内容生成器
-├── crypto_article_generator.py   # 主执行脚本
+├── config.json                    # 配置文件
+├── generate_image.py              # 核心圖片生成引擎
+├── generate_article_image.py      # CLI 包裝工具
+├── FRAMEWORK.md                   # 設計規範與框架
+├── X_ARTICLE_WORKFLOW.md          # 完整工作流程
+├── QUICK_REFERENCE_圖片生成.md    # 快速參考
 ├── README.md                      # 本文件
-└── quick_generate.sh              # 快捷脚本
+└── 對話存檔/                      # 對話歷史存檔
 ```
 
-输出目录：`/sessions/funny-trusting-cori/mnt/claucowork/crypto-x-articles/`
+**輸出目錄:** `/Users/iruka/Downloads/claucowork/crypto-x-articles/`
 
-## ⚙️ 配置说明
+## ⚙️ 配置說明
 
-编辑 `config.json` 来自定义：
+編輯 `config.json` 自定義設置：
 
-### 图片设置
+### 圖片設置（YouTube Influence 風格）
 ```json
 "image": {
   "ratio": "5:2",
   "width": 1000,
   "height": 400,
-  "style": "data_visualization",
+  "style": "bold_text_thumbnail",
   "color_scheme": {
-    "primary": ["#1e3a8a", "#3b82f6", "#60a5fa"],
-    "accent": ["#8b5cf6", "#a78bfa"]
+    "background": "#000000",      // 黑色背景
+    "text": "#FFFFFF",            // 白色文字
+    "highlight_bg": "#FF8C00",    // 橘色高亮框
+    "highlight_text": "#FFFFFF"  // 高亮文字顏色
   }
 }
 ```
 
-### 内容设置
+### 內容設置
 ```json
 "content": {
+  "language": "zh-CN",
   "target_length": [800, 1500],
   "tone": "professional_conversational",
   "optimization_goals": ["impressions", "likes", "saves"]
 }
 ```
 
-## 💡 使用场景
+## 💡 使用場景
 
-### 场景 1: 每日自动生成
-每天早上 9 点自动生成当日币圈热点文章（需要配置 cron）
+### 場景 1: 文章封面圖生成
+為已撰寫的 X Article 快速生成專業封面圖
 
-### 场景 2: 快速响应热点
-看到重要新闻后，立即生成深度分析文章
+### 場景 2: 系列內容視覺統一
+為系列文章創建風格一致的封面圖
 
-### 场景 3: 报告转文章
-将复杂的研究报告转换为易懂的 X Article
+### 場景 3: 主題分析報告
+為深度分析、數據報告生成醒目的封面
 
-### 场景 4: 系列内容
-针对特定叙事（如 DeFi、NFT、L2）创建系列文章
+### 場景 4: 警告/提醒內容
+為重要提醒、風險警告生成高對比度封面
 
-## 🎨 图片风格示例
+## 🎨 圖片風格
 
-**数据可视化风格** (当前配置):
-- 清晰的渐变背景
-- 突出的关键指标
-- 简洁的图表元素
-- 专业的字体排版
+**YouTube Influence 風格**（當前實作）:
+- ⬛ 黑色背景 - 高對比度
+- ⬜ 白色文字 - 清晰易讀
+- 🟧 橘色高亮 - 突出關鍵詞
+- 📐 自動排版 - 最佳化字體大小
 
-## 📝 内容优化技巧
+## 🔧 進階用法
 
-生成的内容已经优化了以下方面：
+### 自定義顏色
 
-1. **标题吸引力** - 使用数字、emoji、制造好奇心
-2. **开头钩子** - 2-3 句话抓住注意力
-3. **结构清晰** - 小标题、短段落、列表
-4. **可扫描性** - 方便快速浏览的格式
-5. **行动号召** - 结尾的思考问题
-
-## 🔧 高级用法
-
-### 自定义标题风格
-
-编辑 `config.json` 中的 `content_templates.title_styles`：
+編輯 `config.json` 中的 `color_scheme`：
 
 ```json
-"title_styles": [
-  "🚨 {topic}: What You Need to Know Right Now",
-  "💡 The {topic} Narrative: A Complete Breakdown"
-]
+"color_scheme": {
+  "background": "#000000",      // 背景色
+  "text": "#FFFFFF",            // 文字顏色
+  "highlight_bg": "#FF8C00",    // 高亮框顏色
+  "highlight_text": "#FFFFFF"  // 高亮文字顏色
+}
 ```
 
-### 自定义开场白
+### 文字排版技巧
 
-编辑 `config.json` 中的 `content_templates.hooks`：
-
-```json
-"hooks": [
-  "Let's talk about something that's been flying under the radar...",
-  "If you've been confused about {topic}, you're not alone."
-]
+**單行排列（2-3個詞組）:**
+```bash
+python3 generate_article_image.py article "主標題" "副標題"
 ```
 
-## 🤖 与 Claude 配合使用
+**雙行排列（4-6個詞組）:**
+```bash
+python3 generate_article_image.py article "第一行" "文字" "第二行" "文字"
+```
 
-### 推荐工作流程：
+**高亮策略:**
+- 關鍵詞：核心概念、品牌名稱
+- 數據：百分比、數字、統計
+- 動作：行動呼籲、警告詞
 
-1. **告诉 Claude 主题**
+## 📚 相關文檔
+
+- **[FRAMEWORK.md](FRAMEWORK.md)** - 設計規範與 4 階段生成框架
+- **[X_ARTICLE_WORKFLOW.md](X_ARTICLE_WORKFLOW.md)** - 完整工作流程與故障排除
+- **[QUICK_REFERENCE_圖片生成.md](QUICK_REFERENCE_圖片生成.md)** - 快速參考速查表
+
+## 📋 對話存檔
+
+每次對話結束時，可以請求生成對話存檔：
+
+```
+請幫我總結這次對話，生成存檔文檔
+```
+
+存檔會自動保存到 `對話存檔/` 資料夾，格式：`YYYY-MM-DD_描述.md`
+
+**詳見 FRAMEWORK.md 中的「Conversation Archiving Workflow」章節。**
+
+## 🎯 快速開始（新 Agent）
+
+如果你是新的 AI Agent，只需：
+
+1. **閱讀 2 個文檔**（5 分鐘）:
+   - `FRAMEWORK.md` - 理解設計哲學
+   - `generate_article_image.py` 的 docstring - 看懂工具用法
+
+2. **執行一個命令**:
+   ```bash
+   python3 generate_article_image.py test "測試" "圖片" --highlight 0
    ```
-   请帮我生成关于 "Solana Restaking" 的 X Article
-   ```
 
-2. **Claude 会：**
-   - 搜索最新资讯
-   - 分析关键要点
-   - 生成图片和内容
-   - 提供可下载链接
+3. **完成！** 你已經可以開始生成圖片了。
 
-3. **你的工作：**
-   - 审阅内容
-   - 根据需要微调
-   - 发布到 X！
+---
 
-### 高级请求示例：
+## 💡 設計原則
 
-```
-基于这篇文章生成 X Article，重点突出数据部分：
-[粘贴 URL]
+生成的圖片針對以下目標優化：
 
-风格要更技术一些，目标读者是 DeFi 用户
-```
+- **可讀性** - 在手機和桌面都清晰
+- **吸引力** - 高對比度黑橘配色
+- **專業度** - 自動字體大小調整
+- **一致性** - 統一的視覺風格
 
-```
-生成一篇关于 EigenLayer 的文章，包含：
-1. TVL 增长分析
-2. 风险评估
-3. 与竞品对比
+## 🎓 最佳實踐
 
-图片要展示 TVL 增长趋势
-```
+### 文字設計
+1. **簡潔為王** - 每行 2-3 個詞組
+2. **善用高亮** - 只高亮關鍵詞（1-2 個）
+3. **雙行排版** - 較長標題分成兩行
 
-## 📊 优化指标
+### 高亮策略
+- 核心概念、品牌名稱
+- 數據、百分比、統計
+- 警告詞、行動呼籲
 
-生成的内容针对以下指标优化：
+## ❓ 常見問題
 
-- **Impressions** - 吸引人的标题和图片
-- **Likes** - 有价值的见解和数据
-- **Saves** - 可参考的深度分析
-- **Engagement** - 结尾的思考问题
+**Q: 圖片尺寸可以調整嗎？**  
+A: 可以！編輯 `config.json` 中的 `width` 和 `height`
 
-## 🎓 最佳实践
+**Q: 可以改變顏色嗎？**  
+A: 可以！編輯 `config.json` 中的 `color_scheme`
 
-1. **保持时效性** - 关注当天热点
-2. **数据驱动** - 包含具体数字和图表
-3. **简化复杂** - "长话短说"原则
-4. **视觉优先** - 图片必须吸引眼球
-5. **行动导向** - 给读者可执行的建议
+**Q: 支援其他語言嗎？**  
+A: 支援！只要系統有對應的中文字型
 
-## 🔄 更新和维护
+**Q: 如何批量生成？**  
+A: 使用 Shell 腳本循環調用命令
 
-### 更新配置
-直接编辑 `config.json` 文件即可，无需重启
+---
 
-### 添加新模板
-在 `config.json` 的 `content_templates` 中添加新的标题或开场白
+## 🎉 開始創作！
 
-### 调整图片风格
-修改 `config.json` 中的 `color_scheme` 来更改配色方案
+現在你已經了解了所有功能，可以開始為你的 X Article 生成專業封面圖了！
 
-## 📞 使用帮助
-
-### 常见问题
-
-**Q: 图片尺寸可以调整吗？**
-A: 可以！编辑 `config.json` 中的 `width` 和 `height`，但保持 5:2 比例
-
-**Q: 如何添加自己的模板？**
-A: 编辑 `config.json` 的 `content_templates` 部分
-
-**Q: 能否同时生成多篇文章？**
-A: 可以通过循环调用脚本，或直接让 Claude 帮你批量生成
-
-**Q: 如何定时自动生成？**
-A: 使用系统 cron job 或让 Claude 帮你设置定时任务
-
-## 🎉 开始创作！
-
-现在你已经了解了所有功能，可以开始创作高质量的 X Article 了！
-
-记住：**内容为王，但展现形式同样重要。**
-
-祝你的文章获得大量 impressions 和 engagement！🚀
+**記住：好的視覺設計能讓你的內容脫穎而出。** 🚀

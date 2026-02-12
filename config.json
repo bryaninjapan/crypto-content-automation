@@ -1,5 +1,5 @@
 {
-  "project_name": "Crypto X Article Generator",
+  "project_name": "X Article Generator",
   "version": "1.0.0",
   "settings": {
     "language": "zh-CN",
@@ -19,15 +19,26 @@
       "language": "zh-CN",
       "target_length": [
         800,
-        1500
+        2500
       ],
-      "tone": "professional_conversational",
+      "tone": "humanized_conversational",
+      "tone_keywords": [
+        "真 (authentic personal stories)",
+        "辣 (sharp bold judgments)",
+        "暖 (warm concrete closing)",
+        "活 (vivid metaphor systems)",
+        "節 (emotional rhythm shifts)"
+      ],
       "optimization_goals": [
         "impressions",
         "likes",
-        "saves"
+        "saves",
+        "comments",
+        "shares"
       ],
-      "format": "x_article"
+      "format": "x_article",
+      "style_guide": "WRITING_STYLE_GUIDE.md",
+      "reference_samples": "content box/"
     },
     "input_sources": {
       "supports": [
@@ -37,14 +48,14 @@
         "auto_search"
       ],
       "auto_search_keywords": [
-        "crypto",
-        "blockchain",
-        "DeFi",
-        "Bitcoin",
-        "Ethereum",
-        "altcoins",
-        "NFT",
-        "Web3"
+        "trending topics",
+        "news analysis",
+        "market insights",
+        "technology trends",
+        "business strategy",
+        "data analysis",
+        "industry reports",
+        "best practices"
       ]
     },
     "output": {
@@ -55,47 +66,84 @@
   },
   "content_templates": {
     "title_styles": [
-      "🚨 {topic}：你现在必须知道的真相",
-      "💡 {topic} 深度解析：从复杂到清晰",
-      "📊 {topic} 完全指南：数据背后的故事",
-      "⚡ 为什么 {topic} 比你想象的更重要",
-      "🔥 {topic}：所有人都忽略的关键数据"
+      "🚨 {topic}：你現在必須知道的關鍵資訊",
+      "💡 {topic} 深度解析：從複雜到清晰",
+      "📊 {topic} 完全指南：數據背後的故事",
+      "⚡ 為什麼 {topic} 比你想象的更重要",
+      "🔥 {topic}：所有人都忽略的核心洞察"
     ],
-    "hooks": [
-      "今天我们来聊一个被严重低估的话题...",
-      "如果你对 {topic} 感到困惑，你并不孤单。",
-      "让我们看看数据到底在告诉我们什么：",
-      "所有人都在讨论 {topic}，但他们都忽略了这些：",
-      "过去几天我深入研究了 {topic}，发现了这些关键信息："
-    ],
-    "structure": {
-      "sections": [
-        {
-          "name": "开场/钩子",
-          "purpose": "抓住注意力，说明问题或机会",
-          "length": "2-3句话"
-        },
-        {
-          "name": "背景/上下文",
-          "purpose": "设定场景，解释为什么现在重要",
-          "length": "3-4句话"
-        },
-        {
-          "name": "主要分析 (2-3个小节)",
-          "purpose": "将主题拆解成易于理解的部分",
-          "length": "多个段落，带小标题"
-        },
-        {
-          "name": "核心要点",
-          "purpose": "用要点总结主要见解",
-          "length": "3-5个要点"
-        },
-        {
-          "name": "总结/行动号召",
-          "purpose": "以可执行的见解或引人思考的问题结尾",
-          "length": "2-3句话"
-        }
+    "hooks": {
+      "scene_hooks": [
+        "凌晨{time}，我在 {platform} 上掛了整整 {duration}。",
+        "剛才在 {action}，感覺自己像是在 {metaphor}。",
+        "昨晚，我做了一個決定：{bold_action}。"
+      ],
+      "data_hooks": [
+        "這週我的 {metric} 「炸」了呀~ 🌸 {specific_number}。",
+        "從 {start} 到 {end}，我用了 {time}。",
+        "一個帖子，{number} 流量，{number} 個贊。"
+      ],
+      "question_hooks": [
+        "你的 {thing} 被 {negative_event}？",
+        "為什麼 90% 的新人在 {field} 活不過一個月？",
+        "如果 {hypothesis}，你會怎麼做？"
+      ],
+      "bold_claim_hooks": [
+        "我要把 {secret} 毫無保留地分享。",
+        "所有人都錯了——{contrarian_view}。",
+        "{field} 最大的謊言，今天我要拆穿它。"
       ]
+    },
+    "article_templates": {
+      "opinion_commentary": {
+        "name": "觀點評論型",
+        "best_for": "科技評論、社會現象、爭議話題",
+        "sections": [
+          {"name": "場景鈎子", "purpose": "用具體的「我在做X時發現了Y」場景開頭", "length": "1段"},
+          {"name": "核心判斷", "purpose": "一句話亮出態度", "length": "1段", "image": "主題縮圖"},
+          {"name": "深度拆解A", "purpose": "現象描述 + 犀利評價", "length": "2-3段", "image": "概念圖/截圖"},
+          {"name": "深度拆解B", "purpose": "底層邏輯 + 比喻解釋", "length": "2-3段"},
+          {"name": "深度拆解C", "purpose": "反轉/意外角度", "length": "2-3段", "image": "對比圖/數據圖"},
+          {"name": "商業/實用解讀", "purpose": "搞錢的朋友們注意了…", "length": "1段"},
+          {"name": "溫情收尾", "purpose": "回到「人」本身，具體建議 + 金句", "length": "1段"}
+        ]
+      },
+      "practical_tutorial": {
+        "name": "實戰教程型",
+        "best_for": "策略分享、經驗教學、起號攻略",
+        "sections": [
+          {"name": "數據鈎子", "purpose": "展示成績引起好奇", "length": "1段", "image": "主題縮圖"},
+          {"name": "防杠聲明", "purpose": "降低敵意、定位自己", "length": "2-3段"},
+          {"name": "分步教學", "purpose": "3-6個編號章節，每章有emoji標題+小鈎子+方法+案例", "length": "多段", "image": "數據截圖+操作截圖+案例截圖"},
+          {"name": "收尾心態篇", "purpose": "反焦慮、降預期、長期主義", "length": "1-2段"},
+          {"name": "總結建議", "purpose": "3-5條一句話行動指南 + emoji", "length": "短列表"}
+        ]
+      },
+      "long_form_thought": {
+        "name": "長篇思想型",
+        "best_for": "人生哲學、深度框架、系統性思考",
+        "sections": [
+          {"name": "大膽標題宣言", "purpose": "震撼性標題", "length": "1句", "image": "主題縮圖"},
+          {"name": "共情入口", "purpose": "If you're anything like me…", "length": "2-3段"},
+          {"name": "多章節論述", "purpose": "5-7章，每章有獨立標題+名人語錄+理論+案例", "length": "多段", "image": "每2-3章插入概念圖"},
+          {"name": "可操作Protocol", "purpose": "帶時間線的步驟和具體問題清單", "length": "多段"},
+          {"name": "收束比喻", "purpose": "用一個比喻概括全文 + 簽名", "length": "1-2段"}
+        ]
+      }
+    },
+    "image_insertion_rules": {
+      "mandatory": ["topic_thumbnail_at_start"],
+      "conditional": {
+        "data_mentioned": "screenshot_or_data_viz",
+        "complex_concept": "concept_or_flow_chart",
+        "section_break": "visual_rest_image",
+        "golden_sentence": "quote_card"
+      },
+      "quantity_guide": {
+        "short_under_800": "1-2 images",
+        "medium_800_1500": "2-4 images",
+        "long_over_1500": "3-6 images"
+      }
     }
   },
   "engagement_tips": {
@@ -106,13 +154,16 @@
       "Use emojis strategically (1-2 max)"
     ],
     "content": [
-      "Start with a hook that relates to reader's pain/gain",
-      "Use short paragraphs (2-3 sentences)",
-      "Include subheadings every 200-300 words",
-      "Simplify jargon - explain like to a smart friend",
-      "Use bullet points for lists",
-      "Add data/statistics to build credibility",
-      "End with open question to encourage engagement"
+      "Start with scene/data/question hook (NEVER '在當今社會…')",
+      "Use 「我」for personal stories, 「你」for direct address",
+      "Insert 括號碎碎念 every 2-4 paragraphs for human feel",
+      "Build a coherent metaphor system throughout the article",
+      "Alternate emotional tones every 2-3 paragraphs (humor↔sharp↔warm)",
+      "Back every point with a real story, data, or personal example",
+      "Use 語氣詞 (呀、嘛、呢、吧) for conversational warmth",
+      "Include 1-2 golden sentences worth screenshotting",
+      "End with warm concrete advice or philosophical金句 (NOT just '總結')",
+      "Add CTA question to drive comments (評論區聊聊…👇)"
     ],
     "image": [
       "One clear focal point",
